@@ -1,0 +1,276 @@
+/* public/assets/css/style.css */
+
+/* Import de la police Inter si non chargée via CDN dans le header */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Styles généraux */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Styles pour les modals */
+.modal {
+    display: none; /* Caché par défaut */
+    position: fixed; /* Reste en place */
+    z-index: 1000; /* Se place au-dessus de tout */
+    left: 0;
+    top: 0;
+    width: 100%; /* Pleine largeur */
+    height: 100%; /* Pleine hauteur */
+    overflow: auto; /* Active le défilement si nécessaire */
+    background-color: rgba(0,0,0,0.6); /* Fond semi-transparent, slightly darker */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #ffffff; /* Pure white */
+    margin: auto;
+    padding: 25px; /* Slightly more padding */
+    border-radius: 10px; /* More rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Stronger, softer shadow */
+    width: 90%; /* Largeur par défaut */
+    max-width: 650px; /* Slightly wider max-width */
+    position: relative;
+}
+
+.modal-close-button {
+    color: #6b7280; /* Gray-500 */
+    position: absolute;
+    top: 15px; /* Slightly lower */
+    right: 20px; /* Slightly left */
+    font-size: 30px; /* Larger icon */
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-close-button:hover,
+.modal-close-button:focus {
+    color: #1f2937; /* Gray-800 */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Styles pour les formulaires */
+.form-group {
+    margin-bottom: 1.25rem; /* Slightly more margin */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.6rem; /* Slightly more margin */
+    font-weight: 600; /* Bolder label */
+    color: #374151; /* Gray-700 */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="number"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.85rem; /* Slightly more padding */
+    border: 1px solid #d1d5db; /* Gray-300 */
+    border-radius: 8px; /* More rounded corners */
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #f9fafb; /* Light gray background for inputs */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus,
+.form-group input[type="number"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #6366f1; /* Indigo-500 */
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25); /* Indigo-500 with opacity */
+    outline: none;
+    background-color: #ffffff; /* White background on focus */
+}
+
+.btn-primary {
+    background-color: #6366f1; /* Indigo-500 */
+    color: white;
+    padding: 0.8rem 1.8rem; /* Slightly more padding */
+    border-radius: 8px; /* More rounded corners */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Added transform */
+    border: none; /* No default border */
+}
+
+.btn-primary:hover {
+    background-color: #4f46e5; /* Indigo-600 */
+    transform: translateY(-1px); /* Slight lift effect */
+}
+
+/* Styles pour les messages d'alerte/succès */
+.alert {
+    padding: 1.1rem; /* Slightly more padding */
+    margin-bottom: 1.25rem; /* Slightly more margin */
+    border-radius: 8px; /* More rounded corners */
+    font-weight: 500;
+    display: flex; /* For better icon alignment if used */
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.alert-success {
+    background-color: #dcfce7; /* Green-100 */
+    color: #15803d; /* Green-700 */
+    border: 1px solid #4ade80; /* Green-400 */
+}
+
+.alert-error {
+    background-color: #fee2e2; /* Red-100 (kept as it's standard for errors) */
+    color: #b91c1c; /* Red-700 */
+    border: 1px solid #ef4444; /* Red-500 */
+}
+
+/* Responsive adjustments for modals */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        padding: 20px; /* Adjusted padding */
+    }
+}
+
+/* Styles pour les tables de listage */
+.table-container {
+    overflow-x: auto;
+    border-radius: 10px; /* More rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08); /* Softer shadow */
+    border: 1px solid #e5e7eb; /* Light gray border for table container */
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.data-table th,
+.data-table td {
+    padding: 14px 18px; /* More padding */
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb; /* Gray-200 */
+}
+
+.data-table th {
+    background-color: #f9fafb; /* Gray-50 */
+    font-weight: 600;
+    color: #4b5563; /* Gray-600 */
+    text-transform: uppercase;
+    font-size: 0.8rem; /* Slightly smaller font size */
+    letter-spacing: 0.05em; /* Some letter spacing */
+}
+
+.data-table tbody tr:hover {
+    background-color: #f5f7f9; /* Lighter gray on hover */
+}
+
+/* Styles pour la pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem; /* More margin */
+    gap: 0.75rem; /* More gap */
+}
+
+.pagination a,
+.pagination span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.1rem; /* Adjusted padding */
+    border-radius: 8px; /* More rounded corners */
+    border: 1px solid #d1d5db; /* Gray-300 */
+    color: #4b5563; /* Gray-600 */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    min-width: 44px; /* Slightly larger min-width */
+    font-weight: 500;
+}
+
+.pagination a:hover {
+    background-color: #e5e7eb; /* Gray-200 */
+    border-color: #9ca3af; /* Gray-400 */
+    color: #1f2937; /* Gray-800 on hover */
+}
+
+.pagination .current-page {
+    background-color: #6366f1; /* Indigo-500 */
+    color: white;
+    border-color: #6366f1;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(99, 102, 241, 0.2); /* Subtle shadow for current page */
+}
+
+.pagination .disabled {
+    opacity: 0.5; /* Slightly more opaque disabled state */
+    cursor: not-allowed;
+    background-color: #f3f4f6; /* Lighter background for disabled */
+    color: #9ca3af; /* Lighter text for disabled */
+    border-color: #e5e7eb;
+}
+
+/* Styles pour les boutons d'action dans les tables */
+.action-buttons {
+    display: flex;
+    gap: 0.6rem; /* More gap between buttons */
+    justify-content: center; /* Centrer les boutons dans la cellule */
+}
+
+.action-buttons .btn {
+    padding: 0.6rem 0.9rem; /* Adjusted padding */
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem; /* Adjusted gap */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Added box-shadow */
+    border: none; /* No default border */
+}
+
+.action-buttons .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+}
+
+.btn-edit {
+    background-color: #4f46e5; /* Indigo-600 */
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #4338ca; /* Indigo-700 */
+}
+
+.btn-delete {
+    background-color: #dc2626; /* Red-600 (kept as it's standard for destructive actions) */
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #b91c1c; /* Red-700 */
+}
+
+.btn-view {
+    background-color: #059669; /* Emerald-600 (kept as it's standard for view actions) */
+    color: white;
+}
+
+.btn-view:hover {
+    background-color: #047857; /* Emerald-700 */
+}
+
+/* Styles pour les icônes */
+.fas, .far, .fab {
+    margin-right: 0.3rem; /* Slightly more margin */
+}
